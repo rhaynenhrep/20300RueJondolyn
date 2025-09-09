@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>20300 Rue Jondolyn - Your Ponchatoula Dream Home Awaits</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #2c5530 0%, #4a7c59 50%, #6b8e5a 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, #8B4513 0%, #D2691E 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 20%, transparent 21%);
+            background-size: 20px 20px;
+            animation: float 20s linear infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: rotate(0deg) translate(-50%, -50%); }
+            100% { transform: rotate(360deg) translate(-50%, -50%); }
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .price {
+            font-size: 4rem;
+            font-weight: bold;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+            margin-bottom: 20px;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .tagline {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .address {
+            font-size: 1.3rem;
+            font-style: italic;
+            opacity: 0.9;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            padding: 60px 40px;
+            background: white;
+        }
+        
+        .feature-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border-left: 5px solid #D2691E;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(210, 105, 30, 0.1), transparent);
+            transition: left 0.5s;
+        }
+        
+        .feature-card:hover::before {
+            left: 100%;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+        
+        .feature-title {
+            font-size: 1.5rem;
+            color: #8B4513;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+        
+        .feature-text {
+            color: #555;
+            font-size: 1.1rem;
+        }
+        
+        .urgency-banner {
+            background: linear-gradient(45deg, #dc3545, #e74c3c);
+            color: white;
+            padding: 30px;
+            text-align: center;
+            margin: 40px;
+            border-radius: 10px;
+            box-shadow: 0 15px 30px rgba(220, 53, 69, 0.3);
+            animation: urgencyPulse 3s infinite;
+        }
+        
+        @keyframes urgencyPulse {
+            0%, 100% { box-shadow: 0 15px 30px rgba(220, 53, 69, 0.3); }
+            50% { box-shadow: 0 15px 30px rgba(220, 53, 69, 0.6); }
+        }
+        
+        .urgency-text {
+            font-size: 1.4rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .market-stats {
+            background: #2c5530;
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .stat-item {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #FFD700;
+        }
+        
+        .cta {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            padding: 50px;
+            text-align: center;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #ffc107 0%, #ff8c00 100%);
+            color: #000;
+            padding: 20px 40px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 50px;
+            box-shadow: 0 10px 25px rgba(255, 193, 7, 0.4);
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 20px;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(255, 193, 7, 0.6);
+        }
+        
+        @media (max-width: 768px) {
+            .price { font-size: 2.5rem; }
+            .tagline { font-size: 1.3rem; }
+            .features-grid { grid-template-columns: 1fr; padding: 30px 20px; }
+            .urgency-banner { margin: 20px; }
+        }
+        
+        .highlight {
+            color: #D2691E;
+            font-weight: bold;
+        }
+        
+        .location-perks {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 40px;
+        }
+        
+        .location-title {
+            text-align: center;
+            font-size: 2.2rem;
+            color: #8B4513;
+            margin-bottom: 30px;
+        }
+        
+        .perks-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .perk-item {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-left: 4px solid #28a745;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="hero">
+            <div class="hero-content">
+                <div class="price">$224,999</div>
+                <div class="tagline">🍓 Ponchatoula Paradise - Move-In Ready! 🍓</div>
+                <div class="address">20300 Rue Jondolyn, Ponchatoula, LA</div>
+            </div>
+        </div>
+        
+        <div class="urgency-banner">
+            <div class="urgency-text">⚡ MOTIVATED SELLERS - PRICED TO SELL IMMEDIATELY! ⚡</div>
+            <p style="margin-top: 10px; font-size: 1.1rem;">This gem won't last in today's competitive market!</p>
+        </div>
+        
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-title">🏠 Perfect Family Layout</div>
+                <div class="feature-text">
+                    <strong>3 bedrooms, 2 full baths</strong> in a smartly designed <strong>1,380 sq ft</strong> that maximizes every inch. Open concept living that flows beautifully from kitchen to family room - perfect for modern Louisiana living!
+                </div>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-title">🎓 School District Winner</div>
+                <div class="feature-text">
+                    Just <strong>1.6 miles from Ponchatoula High School</strong> - no more long morning commutes! Your kids can walk, bike, or catch a quick ride to one of Tangipahoa Parish's solid educational options.
+                </div>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-title">🌳 Private Outdoor Oasis</div>
+                <div class="feature-text">
+                    <strong>Fully fenced backyard</strong> means privacy for BBQs, kids playing, or your four-legged family members. Plus a <strong>gorgeous back patio</strong> perfect for Louisiana evening gatherings!
+                </div>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-title">💰 No HOA Freedom</div>
+                <div class="feature-text">
+                    <strong>Zero HOA fees!</strong> Paint your house purple if you want - this is YOUR kingdom! No monthly dues, no nosy neighbors telling you what you can't do. Pure homeownership bliss.
+                </div>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-title">📍 Downtown Access</div>
+                <div class="feature-text">
+                    <strong>Minutes from historic downtown Ponchatoula!</strong> Walk to antique shops, the famous Strawberry Festival venues, charming local restaurants, and that small-town community feel you've been craving.
+                </div>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-title">⚡ Market Intelligence</div>
+                <div class="feature-text">
+                    <strong>Priced $25K BELOW</strong> current Ponchatoula median! While others are asking $250K+, you're getting premium location and features at a steal. Smart buyers recognize opportunity!
+                </div>
+            </div>
+        </div>
+        
+        <div class="location-perks">
+            <h2 class="location-title">Why Ponchatoula is Louisiana's Best-Kept Secret</h2>
+            <div class="perks-list">
+                <div class="perk-item">
+                    <strong>🍓 "Strawberry Capital of the World"</strong><br>
+                    Live where the famous Louisiana Strawberry Festival happens annually!
+                </div>
+                <div class="perk-item">
+                    <strong>🏛️ Historic Charm</strong><br>
+                    Antique shops, museums, and that authentic Louisiana small-town vibe
+                </div>
+                <div class="perk-item">
+                    <strong>🌊 Strategic Location</strong><br>
+                    Between New Orleans (1 hour) and Baton Rouge (45 minutes) - best of both worlds!
+                </div>
+                <div class="perk-item">
+                    <strong>🌳 Nature Access</strong><br>
+                    Joyce Wildlife Management Area and Fairview-Riverside State Park nearby
+                </div>
+                <div class="perk-item">
+                    <strong>📈 Growing Community</strong><br>
+                    One of Louisiana's fastest-growing areas with solid property appreciation
+                </div>
+                <div class="perk-item">
+                    <strong>💼 Commuter Friendly</strong><br>
+                    Easy access to major employers in both metro areas via I-55
+                </div>
+            </div>
+        </div>
+        
+        <div class="market-stats">
+            <h2 style="font-size: 2rem; margin-bottom: 20px;">🔥 CURRENT MARKET REALITY 🔥</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">$250K</div>
+                    <div>Current Ponchatoula Median</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">80 Days</div>
+                    <div>Average Market Time</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">-2.9%</div>
+                    <div>Fewer Homes Available</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">$163/SF</div>
+                    <div>This Home's Price Per SF</div>
+                </div>
+            </div>
+
+        </div>
+        
+        <div class="cta">
+            <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Ready to Call Ponchatoula Home?</h2>
+            <p style="font-size: 1.3rem; margin-bottom: 30px;">
+                This isn't just a house - it's your gateway to Louisiana's most charming community lifestyle.
+            </p>
+            <a href="tel:985-335-7800" class="cta-button">📞 Schedule Your Private Tour</a>
+            
+            <div style="margin-top: 40px; background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px;">
+                <p style="font-size: 1.3rem; font-weight: bold;">🏡 YOUR PONCHATOULA SPECIALIST 🏡</p>
+                <p style="font-size: 1.2rem; margin: 15px 0;">
+                    <strong>Rhayne Finstad, REALTOR®</strong><br>
+                    📲 Mobile: 985-335-7800<br>
+                    ☎️ Office: 985-429-0777<br>
+                    📍 NextHome Real Estate Professionals
+                </p>
+                <p style="font-size: 1rem;">Don't let your dream home slip away to another buyer. 
+                In this market, the early bird gets the house!</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
